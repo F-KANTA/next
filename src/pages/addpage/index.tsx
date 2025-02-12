@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Button } from '@mui/material';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
 
 export default function addPage() {
     const [question, setQuestion] = useState('');
@@ -39,15 +37,15 @@ export default function addPage() {
             <div className="kodomo">福田勘太クイズ</div>
             <Button variant="outlined" onClick={clickevent}>第1問</Button>
             <div className="question">{question}</div>
-            <List
+            <ul
                 sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.black' }}
                 component="nav"
                 aria-labelledby="nested-list-subheader"
                 className="options">
                 {options.map((option)=>(
-                    <ListItemButton key={option} onClick={() => setUserAnswer(option)}>{option}</ListItemButton>
+                    <li key={option} onClick={() => setUserAnswer(option)}>{option}</ぶt>
                 ))}
-            </List>
+            </ul>
             <Button variant="outlined" onClick={checkAnswer}>OK?</Button>
             <p>{result}</p>
         </div>
