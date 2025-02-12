@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@mui/material';
 
-export default function addPage() {
+export default function AddPage() {
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState<string[]>([]);
     const [answer, setAnswer] = useState('');
