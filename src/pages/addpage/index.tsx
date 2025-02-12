@@ -37,13 +37,9 @@ export default function addPage() {
             <div className="kodomo">福田勘太クイズ</div>
             <Button variant="outlined" onClick={clickevent}>第1問</Button>
             <div className="question">{question}</div>
-            <ul
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.black' }}
-                component="nav"
-                aria-labelledby="nested-list-subheader"
-                className="options">
+            <ul>
                 {options.map((option)=>(
-                    <li key={option} onClick={() => setUserAnswer(option)}>{option}</ぶt>
+                    <li key={option} onClick={() => setUserAnswer(option)}>{option}</li>
                 ))}
             </ul>
             <Button variant="outlined" onClick={checkAnswer}>OK?</Button>
