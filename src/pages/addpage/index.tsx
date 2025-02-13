@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import axios from 'axios';
 
 export default function AddPage() {
     const [question, setQuestion] = useState('');
@@ -8,20 +9,14 @@ export default function AddPage() {
     const [userAnswer, setUserAnswer] = useState('');
     const [result, setResult] = useState('');
 
-    const clickevent = () => {
-        const data = {
-            question: '私の好きな食べ物は？',
-                options: [
-                    { text: 'りんご' },
-                    { text: 'バナナ' },
-                    { text: 'てりやきマックバーガー' },
-                    { text: 'ぶどう' },
-                ],
-                correctAnswer: 'てりやきマックバーガー',
-            }
-        setQuestion(data.question);
-        setOptions(data.options.map((option: { text: string }) => option.text));
-        setAnswer(data.correctAnswer);
+    const clickevent = async () => {
+        const url = "http://localhost:3000/api/hello";
+        const response = await axios.get(url);
+        setQuestion(response.data.quetion.rows[0].name);
+        setOptions(response.data.quetion.rows.map((option: { choice: string }) => option.choice));
+        // const i = ;
+        // const answer_p = response.data.quetion.rows{i}.is_answer;
+        setAnswer(response.data.quetion.rows.is_answer);
         setUserAnswer('');
         setResult('');
     }
